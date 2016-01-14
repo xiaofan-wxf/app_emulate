@@ -1,5 +1,5 @@
 #! /bin/bash
-while read imei
+while read imei imsi
 do
 if [[ ${imei:0:1} != "#" ]]; then
 	trap "exit" SIGINT
@@ -9,7 +9,7 @@ if [[ ${imei:0:1} != "#" ]]; then
 
 	echo $imei
 	#restore imei for device
-	python ../device_modify.py $imei
+	python ../device_modify.py $imei $imsi
 	python ninegame_emulate.py reactive
 
 	sleep 2

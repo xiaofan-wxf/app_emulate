@@ -52,7 +52,7 @@ class NineGameEmulate():
         
         f = open(self.accountfilename,'a')
         try:
-            f.writelines(imei+"\r\n")
+            f.writelines(imei+"\t"+imsi+"\r\n")
         finally:
             f.flush()
             f.close()
@@ -72,4 +72,4 @@ if __name__=='__main__':
     if optype == 'reactive':
        NineGameEmulate().reactiveMobile() 
     else:
-       NineGameEmulate().doSomeClick(sys.argv.pop(1))
+       NineGameEmulate().doSomeClick(sys.argv.pop(1),sys.argv.pop(1))

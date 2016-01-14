@@ -45,30 +45,36 @@ class DeviceModify():
         self.vc.findViewById('id/button2').touch()
         self.vc.dump()
         deviceIMEI = self.vc.findViewById('id/imei').getText()
+        deviceIMSI = self.vc.findViewById('id/subscriberId').getText()
         
         f = open('device_imei.txt','w+')
         try:
             print 'save imei %s to file device_imei.txt'%(deviceIMEI)
-            f.writelines(deviceIMEI)
+            f.writelines(deviceIMEI +"\t"+deviceIMSI)
         finally:
             if(f != None):
                f.close() 
 
-    def modify2IMEI(self,imei):
+    def modify2IMEI(self,imei,imsi=None):
         waitViewById('id/imei',self.vc)
         self.vc.dump()
         #print 'imei is ',imei
         self.vc.findViewById('id/imei').setText(imei[0:15])
+        if imsi != None:
+            self.vc.findViewById('id/subscriberId').setText(imsi[0:15])
         self.vc.findViewById('id/button1').touch()
 
 
 if __name__ == '__main__':
     if(len(sys.argv) < 2):
-        print 'Usage: python device_modify.py random/imei'
+        print 'Usage: python device_modify.py random/imei imsi'
         exit()
 
     imei = sys.argv.pop(1)
     if(imei == 'random'):
         DeviceModify().modifyRandom()
-    else:
+    elif(len(sys.argv) == 1):
         DeviceModify().modify2IMEI(imei)
+    else:
+        imsi = sys.argv.pop(1)
+        DeviceModify().modify2IMEI(imei,imsi)
