@@ -21,5 +21,5 @@ while true; do
 
 	adb shell pm clear cn.ninegame.gamemanager
 
-	sleep 2
+	sleep $(($RANDOM%6))
 done
