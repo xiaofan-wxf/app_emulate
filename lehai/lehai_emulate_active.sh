@@ -1,6 +1,7 @@
 #! /bin/bash
 
-while true; do
+for i in `seq 250` 
+do
 	trap "exit" SIGINT
 	#change ip address	
 	osascript ../ip_random.scpt
@@ -20,7 +21,7 @@ while true; do
 	#clean super fleet cache info
 	adb shell am force-stop com.lehai.ui
 	adb shell am start 'com.lehai.ui/com.showself.ui.LoadingActivity'
-	sleep 5
+	sleep 8
 
 	adb shell pm clear com.lehai.ui
 	sleep $(($RANDOM%6))

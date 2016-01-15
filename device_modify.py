@@ -21,7 +21,6 @@ from com.dtmilano.android.viewclient import ViewClient, View
 import com.dtmilano.android.adb.adbclient
 import com.dtmilano.android.viewclient
 from viewHelper import *
-from PIL import Image
 
 class DeviceModify():
     def __init__(self):

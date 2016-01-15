@@ -1,5 +1,4 @@
-
-#! /usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
 copyright xiaofan.wxf
@@ -45,21 +44,40 @@ class LeHaiEmulate():
 
         waitViewById('id/quick_guide_viewpager',self.vc)
         self.device.dragDip((500,300),(30,300),200,2)
-        ViewClient.sleep(3)
-        #self.device.dragDip((500,300),(30,300),500,10)
-        #ViewClient.sleep(3)
-        #self.device.dragDip((500,300),(30,300),500,10)
-        #ViewClient.sleep(3)
 
-        #self.vc.findViewById('id/rapid_cancle').touch()
-        #ViewClient.sleep(2)
+	self.vc.dump()
+	self.device.touch(615,378,2)	
 
+	waitViewById('id/home_bottom_tab5',self.vc)
+	self.vc.findViewById('id/home_bottom_tab5').touch()
+
+	self.vc.dump()
+	waitViewById('id/btn_login_note_left',self.vc)
+	#self.vc.findViewById('id/btn_login_note_left').touch()
+	self.device.touch(160,1188,2)
+
+	self.vc.dump()
+	waitViewByTx('乐嗨号注册',self.vc)
+	self.vc.findViewWithText('乐嗨号注册').touch()
+	
+	self.vc.dump()
+	name = ''.join(map(lambda xx:(hex(ord(xx))[2:]),os.urandom(5)))
+	self.vc.findViewById('id/et_lehai_reg_account').setText(name)
+	self.vc.findViewById('id/et_reg_password').setText('abc1234')
+	self.vc.findViewById('id/btn_lehai_reg').touch()
+
+	self.vc.dump()
+	waitViewById('id/btn_register_finish',self.vc)
+	self.vc.findViewById('id/btn_register_finish').touch()
+
+	self.vc.dump()
         waitViewById('id/imageView_classify_more_recommend',self.vc)
         self.vc.findViewById('id/imageView_classify_more_recommend').touch()
+        ViewClient.sleep(5)
         
         f = open(self.accountfilename,'a')
         try:
-            f.writelines(imei+"\t"+imsi+"\r\n")
+            f.writelines(name+"\t"+imei+"\t"+imsi+"\r\n")
         finally:
             f.flush()
             f.close()

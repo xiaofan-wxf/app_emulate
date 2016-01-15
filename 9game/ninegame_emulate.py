@@ -19,7 +19,6 @@ from viewHelper import *
 from com.dtmilano.android.viewclient import ViewClient, View
 import com.dtmilano.android.adb.adbclient
 import com.dtmilano.android.viewclient
-from PIL import Image
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -40,7 +39,7 @@ class NineGameEmulate():
         ViewClient.sleep(3)
         self.vc = ViewClient(self.device,self.serialno,forceviewserveruse=True)
 
-    def doSomeClick(self,imei):
+    def doSomeClick(self,imei,imsi=None):
         if self.device == None :
             self.openapp()
 
