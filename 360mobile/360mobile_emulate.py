@@ -33,7 +33,7 @@ class NineGameEmulate():
         self.device,self.serialno = ViewClient.connectToDeviceOrExit(serialno=None)
 
         FLAG_ACTIVITY_NEW_TASK = 0x10000000
-        componentName = 'com.qihoo360.mobilesafe/.ui.index.AppEnterActivity'
+        componentName = 'com.qihoo.browser/.activity.SplashActivity'
         self.device.startActivity(component=componentName,flags=FLAG_ACTIVITY_NEW_TASK)
         ViewClient.sleep(3)
         self.vc = ViewClient(self.device,self.serialno,forceviewserveruse=True)
