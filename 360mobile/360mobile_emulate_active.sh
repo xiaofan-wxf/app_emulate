@@ -16,15 +16,15 @@ while true; do
 
 	sleep $(($RANDOM%6))
 	#clean super fleet cache info
-	adb shell am force-stop com.qihoo360.mobilesafe
-	adb shell am start 'com.qihoo360.mobilesafe/.ui.index.AppEnterActivity'
+	adb shell am force-stop com.qihoo.browser
+	adb shell am start 'com.qihoo.browser/.activity.SplashActivity'
 	sleep $(($RANDOM%6))
 
 	adb shell am force-stop com.qihoo360.mobilesafe
-	adb shell am start 'com.qihoo360.mobilesafe/.ui.index.AppEnterActivity'
+	adb shell am start 'com.qihoo.browser/.activity.SplashActivity'
 	sleep 8
 
-	adb shell pm clear com.qihoo360.mobilesafe
+	adb shell pm clear com.qihoo.browser
 
 	sleep $(($RANDOM%6))
 done
