@@ -59,8 +59,8 @@ class DeviceModify():
         self.vc.dump()
         #print 'imei is ',imei
         self.vc.findViewById('id/imei').setText(imei[0:15])
-        if imsi != None:
-            self.vc.findViewById('id/subscriberId').setText(imsi[0:15])
+        #if imsi != None:
+        #    self.vc.findViewById('id/subscriberId').setText(imsi[0:15])
         self.vc.findViewById('id/button1').touch()
 
 

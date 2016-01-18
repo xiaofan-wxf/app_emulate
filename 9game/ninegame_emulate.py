@@ -48,6 +48,7 @@ class NineGameEmulate():
 
         ViewClient.sleep(3)
         self.vc.findViewById('id/game_name').touch()
+        ViewClient.sleep(5)
         
         f = open(self.accountfilename,'a')
         try:
