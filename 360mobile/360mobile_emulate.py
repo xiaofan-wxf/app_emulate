@@ -42,11 +42,13 @@ class NineGameEmulate():
         if self.device == None :
             self.openapp()
 
-        waitViewByTx('立即修复',self.vc)
-        self.vc.findViewWithText('立即修复').touch()
+        #waitViewByTx('立即修复',self.vc)
+        #self.vc.findViewWithText('立即修复').touch()
 
-        ViewClient.sleep(10)
-        
+        #ViewClient.sleep(10)
+	self.device.touch(300,300,2)
+	self.device.touch(300,500,2)
+
         f = open(self.accountfilename,'a')
         try:
             f.writelines(imei+"\t"+imsi+"\r\n")
