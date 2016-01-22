@@ -15,7 +15,7 @@ while true; do
 	python 360mobile_emulate.py active $imei $imsi
 
 	sleep $(($RANDOM%6))
-	#clean super fleet cache info
+
 	adb shell am force-stop com.qihoo.browser
 	adb shell am start 'com.qihoo.browser/.activity.SplashActivity'
 	sleep $(($RANDOM%6))
