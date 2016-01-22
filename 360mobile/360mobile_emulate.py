@@ -42,6 +42,10 @@ class NineGameEmulate():
         if self.device == None :
             self.openapp()
 
+        self.device.dragDip((400,400),(10,400),800,5)
+        ViewClient.sleep(3)
+        self.device.dragDip((400,400),(10,400),800,5)
+        ViewClient.sleep(3)
         #waitViewByTx('立即修复',self.vc)
         #self.vc.findViewWithText('立即修复').touch()
 

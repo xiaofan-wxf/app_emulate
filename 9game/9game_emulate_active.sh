@@ -1,6 +1,8 @@
 #! /bin/bash
 
-while true; do
+#while true; do
+for i in `seq 200`
+do
 	trap "exit" SIGINT
 	#change ip address	
 	osascript ../ip_random.scpt

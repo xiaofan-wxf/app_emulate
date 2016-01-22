@@ -19,4 +19,4 @@ if [[ ${imei:0:1} != "#" ]]; then
 	adb shell pm clear cn.ninegame.gamemanager
 	sleep 2
 fi
-done < "9game_imei_list.2016-01-15"
+done < "9game_imei_list.2016-01-17"
