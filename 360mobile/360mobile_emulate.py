@@ -45,9 +45,21 @@ class NineGameEmulate():
         #waitViewByTx('立即修复',self.vc)
         #self.vc.findViewWithText('立即修复').touch()
 
-        #ViewClient.sleep(10)
-	self.device.touch(300,300,2)
-	self.device.touch(300,500,2)
+        ViewClient.sleep(1)
+	self.device.drag((600,400),(10,400),2000)
+
+        ViewClient.sleep(1)
+	self.device.drag((600,400),(10,400),2000)
+
+        self.vc.dump()
+        waitViewById('id/ensure',self.vc)
+        #self.vc.findViewById('id/ensure').touch()
+        self.device.touch(345,1070,2)
+
+        ViewClient.sleep(2)
+        waitViewById('id/first_nav',self.vc)
+        self.vc.findViewById('id/first_nav').touch()
+        ViewClient.sleep(5)
 
         f = open(self.accountfilename,'a')
         try:
